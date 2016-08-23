@@ -1,0 +1,16 @@
+{
+  "name": "node-concept2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "nw-gyp clean configure build --verbose --arch=ia32 --target=0.14.7",
+    "build": "nw-gyp clean configure build --verbose --arch=ia32 --target=0.14.7"
+  },
+  "author": "GAMELASTER",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "nan": "^2.4.0"
+  }
+}
