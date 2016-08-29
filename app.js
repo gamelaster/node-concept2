@@ -34,11 +34,12 @@ var PM = function(deviceNumber) {
 };
 
 PM.prototype.reset = function() {
-	native.executeCommand(this.deviceNumber, [
-		commands.CSAFE_GOFINISHED_CMD,
-		commands.CSAFE_GOIDLE_CMD,
-		commands.CSAFE_RESET_CMD,
-	]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_GOFINISHED_CMD ]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_GOFINISHED_CMD ]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_RESET_CMD ]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_GOIDLE_CMD ]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_GOREADY_CMD ]);
+	native.executeCommand(this.deviceNumber, [ commands.CSAFE_RESET_CMD ]);
 };
 
 PM.prototype.start = function() {
@@ -130,8 +131,8 @@ PM.prototype.getTimeWork = function() {
   	  (b[7] << 24)
   	| (b[6] << 16)
   	| (b[5] << 8)
-  	| (b[4])
-  	| (b[8]);
+  	| (b[4]);
+  i += (b[8]);
   return i;
 };
 

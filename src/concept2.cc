@@ -111,11 +111,21 @@ namespace Concept2 {
 		UINT32_T rsp_data[64];
 		UINT16_T rsp_data_size = 100;
 		ERRCODE_T code = tkcmdsetCSAFE_command(deviceIndex, array->Length(), cmd, &rsp_data_size, rsp_data);
+		
+		/*for (UINT16_T i = 0; i < rsp_data_size; i++)
+			cout << rsp_data[i] << ", ";
+
+		cout << endl;*/
+
 		if (IsError(code, isolate)) return;
 		v8::Handle<v8::Array> array2 = v8::Array::New(isolate, rsp_data_size);
 		for (int i = 0; i < rsp_data_size; i++) {
 			array2->Set(i, v8::Integer::New(isolate, rsp_data[i]));
 		}
+		/*for (UINT16_T i = 0; i < rsp_data_size; i++)
+			cout << array2->Get(i)->Int32Value() << ", ";
+
+		cout << endl;*/
 		args.GetReturnValue().Set(array2);
 	}
 
