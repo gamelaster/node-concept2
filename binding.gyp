@@ -30,6 +30,12 @@
     "conditions": [
       ['OS=="win"', {
         'msbuild_toolset': 'v140_xp',
+        'msvs_settings': {
+          'VCLinkerTool': {
+            'SubSystem': '2',
+            'MinimumRequiredVersion': '5.01',  # XP.
+          },
+        },
         "libraries": [
           '../lib/PM3CsafeCP.lib',
           '../lib/PM3DDICP.lib',
