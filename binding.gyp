@@ -29,6 +29,7 @@
     ],
     "conditions": [
       ['OS=="win"', {
+        'msbuild_toolset': 'v140_xp',
         "libraries": [
           '../lib/PM3CsafeCP.lib',
           '../lib/PM3DDICP.lib',
